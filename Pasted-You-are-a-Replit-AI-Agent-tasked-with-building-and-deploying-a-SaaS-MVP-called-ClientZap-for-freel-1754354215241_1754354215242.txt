@@ -1,0 +1,73 @@
+You are a Replit AI Agent tasked with building and deploying a SaaS MVP called "ClientZap" for freelancers to automate client onboarding, targeting paying customers ($15–40/month) in 4–6 weeks. I’m a solo founder with basic coding skills, starting with zero followers, and need to protect the idea from theft. Build a secure, private, visually polished web app in Replit using HTML/CSS/JS (frontend), Node.js (backend), and SQLite (database), integrating free-tier APIs (DocuSign for e-signatures, Calendly for scheduling). The app must be user-friendly, conversion-focused, and deployable on Replit’s free or Hacker plan ($7/month). Deliver clean, commented code, a professional UI, and marketing-ready elements (e.g., landing page) to drive sign-ups. Provide setup and deployment instructions for Replit.
+
+### Project Requirements
+**Core Features**:
+1. **Client Intake Form Builder**:
+   - Drag-and-drop interface for freelancers to create custom forms (fields: client name, email, project details, budget).
+   - Modern, responsive UI (use Tailwind CSS for clean, professional styling).
+   - Store form data in SQLite.
+   - Generate a shareable form link for clients to fill out.
+2. **Contract Generation**:
+   - Create a PDF contract from a template (use form data: client name, project scope, budget).
+   - Integrate DocuSign API (free tier) for e-signatures, sending contracts to clients.
+   - Store contract status (e.g., “Sent,” “Signed”) in SQLite.
+3. **Scheduling Integration**:
+   - Embed Calendly API (free tier) for clients to book calls after form submission.
+   - Link bookings to form data in the dashboard.
+4. **Dashboard**:
+   - Clean, intuitive UI showing client list, form status (e.g., “Sent,” “Completed”), contract status, and booking status.
+   - Use Tailwind CSS for a modern, professional look (e.g., card-based layout, soft colors like blue/white).
+   - Include a “Send New Form” button and client progress bars.
+   - Secure with email/password login (Node.js authentication, bcrypt for passwords).
+5. **Landing Page**:
+   - Marketing-optimized page to drive waitlist sign-ups (Mailchimp form integration, free tier).
+   - Headline: “ClientZap: Automate Freelancer Onboarding in Minutes.”
+   - Subheadline: “Save 5+ hours/week on client forms, contracts, and scheduling.”
+   - Include a mockup screenshot (dashboard with client list, progress bars).
+   - CTA: “Join Waitlist for Early Access” (Mailchimp form).
+   - Design: Clean, modern, conversion-focused (use Tailwind CSS, hero section, testimonial placeholder).
+
+**Technical Requirements**:
+- **Stack**: HTML/CSS/JS (frontend, Tailwind CSS), Node.js (backend, Express.js), SQLite (database).
+- **APIs**: DocuSign (free tier, e-signatures), Calendly (free tier, scheduling).
+- **Security**: Private Replit project, password-protected beta access, secure login (bcrypt).
+- **Cost**: Use Replit free tier (Hacker plan, $7/month, if needed). Free APIs only.
+- **Performance**: Lightweight app, fast load times (<2s), responsive design (mobile-friendly).
+- **Comments**: Add clear comments for each code section (e.g., “Form submission handler”).
+- **Dependencies**: Minimize packages (e.g., express, sqlite3, bcrypt, axios for APIs).
+
+**Design Requirements** (Graphic Designer Perspective):
+- UI: Modern, clean, professional (Tailwind CSS, blue/white palette, rounded buttons, card-based dashboard).
+- UX: Intuitive navigation (e.g., sidebar for dashboard, form builder, settings).
+- Mockup: Embed a high-fidelity dashboard screenshot in the landing page (client list, progress bars, “Book Call” button).
+- Branding: Use “ClientZap” logo (simple text-based, bold font, blue accent) for consistency.
+
+**Marketing Requirements** (Marketing Professional Perspective):
+- Landing page optimized for conversions: Clear headline, benefits (save time, impress clients), strong CTA.
+- Include placeholder testimonial: “Saved me 2 hours per client!” — Freelancer.
+- Mailchimp form for waitlist sign-ups, linked to SQLite for tracking.
+- Demo-ready: Generate a 1-minute demo video script for Loom (e.g., “Create form → send contract → book call”).
+- SEO: Basic meta tags for “freelancer onboarding tool” to support future growth.
+
+**Deliverables**:
+1. Replit project structure (files: index.html, style.css, app.js, server.js, database.sql).
+2. Commented code for all features (form builder, contract generation, scheduling, dashboard, landing page).
+3. Setup instructions for Replit (e.g., npm install, API key setup).
+4. DocuSign and Calendly API integration steps (free-tier accounts).
+5. Deployment steps for Replit hosting (free or Hacker plan, password-protected).
+6. Mockup screenshot code (HTML/CSS) for landing page.
+7. Timeline for build (2–3 weeks for solo founder, 10–15 hours/week).
+
+**Constraints**:
+- Build for Replit’s free tier (upgrade to Hacker if needed).
+- Keep code simple for a beginner to tweak.
+- Avoid public sharing to protect the idea.
+- Suggest no-code alternatives (e.g., Zapier) if a feature is complex.
+
+**Timeline**:
+- Day 1–2: Landing page, form builder UI.
+- Day 3–7: Backend (Node.js, SQLite), DocuSign integration.
+- Day 8–14: Calendly integration, dashboard UI, login.
+- Day 15–21: Testing, polish, deployment.
+
+Generate the full codebase, file​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
