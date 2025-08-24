@@ -1,30 +1,27 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
 
 export default defineConfig({
-  // <-- IMPORTANT: our app lives in /src
-  root: path.resolve(__dirname, "src"),
-
+  // Tell Vite to use the root index.html (not client/index.html)
+  root: '.',
   plugins: [react()],
-
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
-      components: path.resolve(__dirname, "src/components"),
-      pages: path.resolve(__dirname, "src/pages"),
-      lib: path.resolve(__dirname, "src/lib"),
-      hooks: path.resolve(__dirname, "src/hooks"),
+      '@': path.resolve(__dirname, 'src'),
+      components: path.resolve(__dirname, 'src/components'),
+      pages: path.resolve(__dirname, 'src/pages'),
+      lib: path.resolve(__dirname, 'src/lib'),
+      hooks: path.resolve(__dirname, 'src/hooks'),
     },
   },
-
-  // build output goes back to project root /dist
   build: {
-    outDir: "../dist",
+    // Make the client build live in its own folder so it doesn't clash with the server build
+    outDir: 'dist/client',
     emptyOutDir: true,
+    rollupOptions: {
+      // Explicitly tell Rollup/Vite what the HTML entry is
+      input: path.resolve(__dirname, 'index.html'),
+    },
   },
-
-  // optional local dev niceties
-  server: { port: 5173, open: true },
-  preview: { port: 5173 },
-});
+})
