@@ -4,7 +4,7 @@ import path from "path"
 
 export default defineConfig({
   plugins: [react()],
-  root: ".", // 👈 ensures Vite looks in the project root for index.html
+  root: ".", // 👈 important
   build: {
     outDir: "dist"
   },
