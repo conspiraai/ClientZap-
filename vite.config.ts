@@ -1,12 +1,12 @@
-import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
-import path from "path"
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  root: ".", // 👈 important
+  root: ".", // <- look in project root
   build: {
-    outDir: "dist"
+    outDir: "dist",
   },
   resolve: {
     alias: {
@@ -14,7 +14,7 @@ export default defineConfig({
       components: path.resolve(__dirname, "src/components"),
       pages: path.resolve(__dirname, "src/pages"),
       lib: path.resolve(__dirname, "src/lib"),
-      hooks: path.resolve(__dirname, "src/hooks")
-    }
-  }
-})
+      hooks: path.resolve(__dirname, "src/hooks"),
+    },
+  },
+});
