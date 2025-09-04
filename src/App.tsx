@@ -1,49 +1,40 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { AuthProvider } from "./hooks/use-auth";
-import { ProtectedRoute } from "./lib/protected-route";
-import LandingPage from "@/pages/landing-page";
-import AuthPage from "@/pages/auth-page";
-import DashboardPage from "@/pages/dashboard-page";
-import FormBuilderPage from "@/pages/form-builder-page";
-import FormPreviewPage from "@/pages/form-preview-page";
-import SubmissionsPage from "@/pages/submissions-page";
-import ProfileSettingsPage from "@/pages/profile-settings-page";
-import ZapInboxPage from "@/pages/zap-inbox-page";
-import BillingPage from "@/pages/billing-page";
-import NotFound from "@/pages/not-found";
-
-function Router() {
+export default function App() {
   return (
-    <Switch>
-      <Route path="/" component={LandingPage} />
-      <Route path="/auth" component={AuthPage} />
-      <Route path="/form/:shareableLink" component={FormPreviewPage} />
-      <ProtectedRoute path="/dashboard" component={DashboardPage} />
-      <ProtectedRoute path="/form-builder" component={FormBuilderPage} />
-      <ProtectedRoute path="/submissions" component={SubmissionsPage} />
-      <ProtectedRoute path="/profile" component={ProfileSettingsPage} />
-      <ProtectedRoute path="/zap-inbox" component={ZapInboxPage} />
-      <ProtectedRoute path="/billing" component={BillingPage} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <header className="header">
+        <nav className="nav">
+          <div className="left">
+            <a className="btn" href="/">HOME</a>
+            <button className="btn" type="button" disabled>MARKET ▾</button>
+          </div>
+          <div className="right">
+            <button className="btn" type="button" disabled>SOURCES ▾</button>
+          </div>
+        </nav>
+      </header>
+
+      <main className="main">
+        <h1 className="brand">CONSPIRA AI</h1>
+        <p className="tagline">Uncover the Crypto Undercurrent</p>
+
+        <div className="ctaRow">
+          <a className="btn" href="#" aria-disabled="true">›_ Enter Terminal</a>
+
+          <a
+            className="btn btn--accent"
+            href="https://x.com/conspira_ai"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Follow on X
+          </a>
+
+          <input className="input" placeholder="Enter email" />
+          <button className="go go--accent" type="button">Go</button>
+        </div>
+
+        <p className="footer">Site is live. Modules are coming online.</p>
+      </main>
+    </>
   );
 }
-
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </AuthProvider>
-    </QueryClientProvider>
-  );
-}
-
-export default App;
