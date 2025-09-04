@@ -1,119 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Global font (safe to keep here) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
 
-:root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(20, 14.3%, 4.1%);
-  --muted: hsl(60, 4.8%, 95.9%);
-  --muted-foreground: hsl(25, 5.3%, 44.7%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(20, 14.3%, 4.1%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(20, 14.3%, 4.1%);
-  --border: hsl(20, 5.9%, 90%);
-  --input: hsl(20, 5.9%, 90%);
-  --primary: hsl(207, 90%, 54%);
-  --primary-foreground: hsl(211, 100%, 99%);
-  --secondary: hsl(60, 4.8%, 95.9%);
-  --secondary-foreground: hsl(24, 9.8%, 10%);
-  --accent: hsl(60, 4.8%, 95.9%);
-  --accent-foreground: hsl(24, 9.8%, 10%);
-  --destructive: hsl(0, 84.2%, 60.2%);
-  --destructive-foreground: hsl(60, 9.1%, 97.8%);
-  --ring: hsl(20, 14.3%, 4.1%);
-  --radius: 0.5rem;
+/* Theme tokens */
+:root{
+  --bg:#0b0f14;
+  --panel:#10151c;
+  --text:#e6e7eb;
+  --muted:#a6adbb;
+  --chip:#161b23;
+  --accent:#ff2bb3;
+  --accent2:#a84dff;
 }
 
-.dark {
-  --background: hsl(240, 10%, 3.9%);
-  --foreground: hsl(0, 0%, 98%);
-  --muted: hsl(240, 3.7%, 15.9%);
-  --muted-foreground: hsl(240, 5%, 64.9%);
-  --popover: hsl(240, 10%, 3.9%);
-  --popover-foreground: hsl(0, 0%, 98%);
-  --card: hsl(240, 10%, 3.9%);
-  --card-foreground: hsl(0, 0%, 98%);
-  --border: hsl(240, 3.7%, 15.9%);
-  --input: hsl(240, 3.7%, 15.9%);
-  --primary: hsl(207, 90%, 54%);
-  --primary-foreground: hsl(211, 100%, 99%);
-  --secondary: hsl(240, 3.7%, 15.9%);
-  --secondary-foreground: hsl(0, 0%, 98%);
-  --accent: hsl(240, 3.7%, 15.9%);
-  --accent-foreground: hsl(0, 0%, 98%);
-  --destructive: hsl(0, 62.8%, 30.6%);
-  --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(240, 4.9%, 83.9%);
-  --radius: 0.5rem;
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+/* Top bar */
+.header{
+  position:sticky; top:0; z-index:10;
+  background:linear-gradient(to bottom, rgba(16,21,28,.95), rgba(16,21,28,.6) 60%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav{max-width:1100px;margin:0 auto;padding:.75rem 1rem;display:flex;justify-content:space-between;align-items:center;gap:.75rem}
+.nav .left,.nav .right{display:flex;gap:.5rem;align-items:center}
 
-  body {
-    @apply font-sans antialiased bg-background text-foreground;
-  }
+/* Buttons */
+.btn{
+  background:var(--chip);
+  color:var(--text);
+  border:1px solid rgba(255,255,255,.08);
+  padding:.55rem .9rem;
+  border-radius:.6rem;
+  font-weight:600;
+  font-size:.85rem;
+  letter-spacing:.02em;
+  cursor:pointer;
+  text-decoration:none;
+}
+.btn:hover{border-color:rgba(255,255,255,.16)}
+.btn[disabled]{opacity:.5; cursor:not-allowed}
+.btn--accent{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 8px 28px rgba(255,43,179,.35);
 }
 
-/* Custom styles for ClientZap branding */
-.brand-gradient {
-  background: linear-gradient(135deg, hsl(207, 90%, 54%) 0%, hsl(207, 90%, 64%) 100%);
+/* Hero */
+.main{max-width:1100px;margin:0 auto;padding:7rem 1rem 5rem;text-align:center}
+.brand{
+  font-size:clamp(3rem,11vw,8rem);
+  font-weight:800;
+  letter-spacing:.08em;
+  line-height:1;
+  margin:0 0 1.25rem;
+  color:#fff;
+  text-shadow:
+    0 0 6px rgba(255,43,179,.85),
+    0 0 18px rgba(255,43,179,.75),
+    0 0 48px rgba(255,43,179,.45),
+    0 0 96px rgba(168,77,255,.35);
+  filter:drop-shadow(0 8px 40px rgba(255,43,179,.15));
 }
+.tagline{color:var(--muted);margin-bottom:2.2rem;letter-spacing:.08em}
 
-/* Form builder specific styles */
-.form-field-wrapper {
-  position: relative;
+/* CTAs */
+.ctaRow{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;justify-content:center}
+.input{
+  background:#0f141b;
+  color:var(--text);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:.6rem;
+  padding:.7rem 1rem;
+  width:18rem;
 }
+.go{padding:.7rem 1rem;border-radius:.6rem;border:1px solid transparent;cursor:pointer}
+.go--accent{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 10px 32px rgba(255,43,179,.35)}
 
-.form-field-wrapper:hover .field-actions {
-  opacity: 1;
-}
-
-.field-actions {
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-
-/* Progress bar custom styling */
-.progress-bar {
-  background: linear-gradient(90deg, hsl(207, 90%, 54%) 0%, hsl(207, 90%, 64%) 100%);
-}
-
-/* Dashboard card hover effects */
-.dashboard-card {
-  transition: all 0.2s ease-in-out;
-}
-
-.dashboard-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-/* Waitlist section styling */
-.waitlist-section {
-  background: linear-gradient(135deg, hsl(207, 90%, 54%) 0%, hsl(207, 90%, 44%) 100%);
-}
-
-/* Landing page hero styling */
-.hero-gradient {
-  background: linear-gradient(135deg, hsl(213, 100%, 96%) 0%, hsl(0, 0%, 100%) 100%);
-}
-
-/* Status badge custom colors */
-.status-completed {
-  background-color: hsl(142, 76%, 94%);
-  color: hsl(142, 86%, 28%);
-}
-
-.status-pending {
-  background-color: hsl(48, 96%, 89%);
-  color: hsl(25, 95%, 53%);
-}
-
-.status-signed {
-  background-color: hsl(207, 89%, 94%);
-  color: hsl(207, 90%, 54%);
-}
+.footer{opacity:.6;font-size:.85rem;margin-top:3rem}
